@@ -1,0 +1,385 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={frontmatter.excerpt} />
+		<title>{frontmatter.title} - Upper Hand International</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<div class="container">
+				<nav class="nav">
+					<div class="logo-container">
+						<img src="/logo.png" alt="Upper Hand International Logo" class="logo" />
+						<a href="/" class="org-name">Upper Hand International</a>
+					</div>
+					<ul class="nav-menu">
+						<li><a href="/#about">About</a></li>
+						<li><a href="/#projects">Projects</a></li>
+						<li><a href="/#message">Message</a></li>
+						<li><a href="/#blog">Blog</a></li>
+						<li><a href="/#contact">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Blog Post Content -->
+		<article class="blog-post">
+			<div class="container">
+				<div class="post-header">
+					<a href="/#blog" class="back-link">← Back to Blog</a>
+					<h1 class="post-title">{frontmatter.title}</h1>
+					<div class="post-meta">
+						<span class="post-date">{frontmatter.date}</span>
+						{frontmatter.author && (
+							<span class="post-author"> • By {frontmatter.author}</span>
+						)}
+					</div>
+				</div>
+				<div class="post-content">
+					<slot />
+				</div>
+				<div class="post-footer">
+					<a href="/#blog" class="back-link">← Back to all posts</a>
+				</div>
+			</div>
+		</article>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>Contact Us</h3>
+						<p>20862 W Ardmore Circle<br/>Plainfield, IL 60544</p>
+						<p><a href="mailto:upperhandinternational@gmail.com">upperhandinternational@gmail.com</a></p>
+					</div>
+					<div class="footer-section">
+						<h3>Leadership</h3>
+						<p>Faheem Shahzad - President</p>
+						<p>Dr. Shahid Sharer - Secretary</p>
+						<p>Qazi M Yousaf - Treasurer</p>
+					</div>
+					<div class="footer-section">
+						<h3>Supported By</h3>
+						<img src="/apa-bolingbrook.jpeg" alt="APA Bolingbrook" class="supporter-logo" />
+						<p class="supporter-name">APA Bolingbrook</p>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; {new Date().getFullYear()} Upper Hand International. All rights reserved. 501(c) Non-Profit Organization</p>
+				</div>
+			</div>
+		</footer>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary: #2563eb;
+				--primary-dark: #1e40af;
+				--secondary: #0ea5e9;
+				--text-dark: #1e293b;
+				--text-light: #64748b;
+				--bg-light: #f8fafc;
+				--white: #ffffff;
+				--gray-100: #f1f5f9;
+				--gray-200: #e2e8f0;
+				--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+				--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+				--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+			}
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				color: var(--text-dark);
+				line-height: 1.6;
+				background: var(--bg-light);
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1.5rem;
+			}
+
+			/* Header */
+			.header {
+				background: var(--white);
+				box-shadow: var(--shadow-sm);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 0;
+			}
+
+			.logo-container {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.logo {
+				height: 50px;
+				width: auto;
+			}
+
+			.org-name {
+				font-size: 1.25rem;
+				font-weight: 600;
+				color: var(--text-dark);
+				text-decoration: none;
+				transition: color 0.3s;
+			}
+
+			.org-name:hover {
+				color: var(--primary);
+			}
+
+			.nav-menu {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+
+			.nav-menu a {
+				text-decoration: none;
+				color: var(--text-light);
+				font-weight: 500;
+				transition: color 0.3s;
+			}
+
+			.nav-menu a:hover {
+				color: var(--primary);
+			}
+
+			/* Blog Post */
+			.blog-post {
+				padding: 3rem 0;
+				min-height: 60vh;
+			}
+
+			.post-header {
+				max-width: 800px;
+				margin: 0 auto 3rem;
+			}
+
+			.back-link {
+				color: var(--primary);
+				text-decoration: none;
+				font-weight: 500;
+				display: inline-block;
+				margin-bottom: 2rem;
+				transition: color 0.3s;
+			}
+
+			.back-link:hover {
+				color: var(--primary-dark);
+			}
+
+			.post-title {
+				font-size: 3rem;
+				font-weight: 700;
+				color: var(--text-dark);
+				margin-bottom: 1rem;
+				line-height: 1.2;
+			}
+
+			.post-meta {
+				color: var(--text-light);
+				font-size: 1rem;
+			}
+
+			.post-date {
+				font-weight: 500;
+			}
+
+			.post-author {
+				font-style: italic;
+			}
+
+			.post-content {
+				max-width: 800px;
+				margin: 0 auto;
+				background: var(--white);
+				padding: 3rem;
+				border-radius: 1rem;
+				box-shadow: var(--shadow);
+			}
+
+			.post-content :global(h1) {
+				font-size: 2.5rem;
+				font-weight: 700;
+				margin: 2rem 0 1rem;
+				color: var(--text-dark);
+			}
+
+			.post-content :global(h2) {
+				font-size: 2rem;
+				font-weight: 600;
+				margin: 2rem 0 1rem;
+				color: var(--text-dark);
+			}
+
+			.post-content :global(h3) {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin: 1.5rem 0 0.75rem;
+				color: var(--text-dark);
+			}
+
+			.post-content :global(p) {
+				margin-bottom: 1.5rem;
+				font-size: 1.125rem;
+				line-height: 1.8;
+				color: var(--text-light);
+			}
+
+			.post-content :global(ul),
+			.post-content :global(ol) {
+				margin: 1.5rem 0;
+				padding-left: 2rem;
+			}
+
+			.post-content :global(li) {
+				margin-bottom: 0.75rem;
+				font-size: 1.125rem;
+				line-height: 1.8;
+				color: var(--text-light);
+			}
+
+			.post-content :global(strong) {
+				color: var(--text-dark);
+				font-weight: 600;
+			}
+
+			.post-content :global(a) {
+				color: var(--primary);
+				text-decoration: none;
+				border-bottom: 1px solid var(--primary);
+				transition: color 0.3s;
+			}
+
+			.post-content :global(a:hover) {
+				color: var(--primary-dark);
+			}
+
+			.post-content :global(hr) {
+				margin: 2rem 0;
+				border: none;
+				border-top: 2px solid var(--gray-200);
+			}
+
+			.post-content :global(blockquote) {
+				margin: 2rem 0;
+				padding-left: 1.5rem;
+				border-left: 4px solid var(--primary);
+				font-style: italic;
+				color: var(--text-light);
+			}
+
+			.post-footer {
+				max-width: 800px;
+				margin: 3rem auto 0;
+				padding-top: 2rem;
+			}
+
+			/* Footer */
+			.footer {
+				background: var(--text-dark);
+				color: var(--white);
+				padding: 3rem 0 1.5rem;
+				margin-top: 4rem;
+			}
+
+			.footer-content {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 3rem;
+				margin-bottom: 2rem;
+			}
+
+			.footer-section h3 {
+				margin-bottom: 1rem;
+				font-size: 1.25rem;
+			}
+
+			.footer-section p {
+				margin-bottom: 0.5rem;
+				opacity: 0.9;
+			}
+
+			.footer-section a {
+				color: var(--white);
+				text-decoration: none;
+				transition: opacity 0.3s;
+			}
+
+			.footer-section a:hover {
+				opacity: 0.8;
+			}
+
+			.supporter-logo {
+				max-width: 150px;
+				height: auto;
+				margin-bottom: 0.5rem;
+				border-radius: 0.5rem;
+			}
+
+			.supporter-name {
+				font-weight: 500;
+			}
+
+			.footer-bottom {
+				text-align: center;
+				padding-top: 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				opacity: 0.8;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.nav-menu {
+					display: none;
+				}
+
+				.post-title {
+					font-size: 2rem;
+				}
+
+				.post-content {
+					padding: 2rem 1.5rem;
+				}
+
+				.post-content :global(h1) {
+					font-size: 2rem;
+				}
+
+				.post-content :global(h2) {
+					font-size: 1.5rem;
+				}
+			}
+		</style>
+	</body>
+</html>

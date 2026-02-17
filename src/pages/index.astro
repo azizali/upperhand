@@ -1,0 +1,627 @@
+---
+// Get all project images
+const projectImages = [
+	'/projects/project1.jpeg',
+	'/projects/project1b.jpeg',
+	'/projects/project2.jpeg',
+	'/projects/project3.jpeg',
+	'/projects/project4.jpeg',
+	'/projects/project4b.jpeg',
+	'/projects/project5.jpeg',
+	'/projects/project5b.jpeg',
+	'/projects/project6.jpeg',
+	'/projects/project6b.jpeg',
+	'/projects/project7.jpeg',
+	'/projects/project7b.jpeg',
+	'/projects/project7c.jpeg',
+	'/projects/project8.jpeg',
+];
+
+// Get blog posts
+const blogPosts = await Astro.glob('./blog/*.md');
+const recentPosts = blogPosts.slice(0, 3);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Upper Hand International - Creating water pumps in Pakistan Thar to serve humanity with compassion and integrity." />
+		<title>Upper Hand International - Serving Humanity with Compassion</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- Header -->
+		<header class="header">
+			<div class="container">
+				<nav class="nav">
+					<div class="logo-container">
+						<img src="/logo.png" alt="Upper Hand International Logo" class="logo" />
+						<span class="org-name">Upper Hand International</span>
+					</div>
+					<ul class="nav-menu">
+						<li><a href="#about">About</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#message">Message</a></li>
+						<li><a href="#blog">Blog</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="hero-overlay"></div>
+			<div class="container hero-content">
+				<h1 class="hero-title">Extending a Helping Hand<br/>to Those in Need</h1>
+				<p class="hero-subtitle">Creating sustainable water solutions in Pakistan's Thar Desert</p>
+				<a href="#projects" class="cta-button">See Our Impact</a>
+			</div>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="section about">
+			<div class="container">
+				<h2 class="section-title">Our Mission</h2>
+				<div class="about-content">
+					<div class="about-text">
+						<p class="lead">At Upper Hand International, we are committed to serving humanity with compassion, integrity, and transparency.</p>
+						<p>As a non-profit charitable organization, our mission is to create meaningful change by supporting vulnerable families, empowering individuals, and responding to the needs of those who require assistance the most.</p>
+						<p>We specialize in creating sustainable water pump solutions in Pakistan's Thar region, bringing clean water to communities that need it most.</p>
+					</div>
+					<div class="about-stats">
+						<div class="stat-card">
+							<div class="stat-number">100+</div>
+							<div class="stat-label">Water Pumps Installed</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-number">1000+</div>
+							<div class="stat-label">Families Served</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-number">501(c)</div>
+							<div class="stat-label">Non-Profit Status</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Gallery -->
+		<section id="projects" class="section projects">
+			<div class="container">
+				<h2 class="section-title">Our Projects</h2>
+				<p class="section-subtitle">Bringing clean water to communities in Thar, Pakistan</p>
+				<div class="gallery">
+					{projectImages.map((image) => (
+						<div class="gallery-item">
+							<img src={image} alt="Water pump project in Thar" loading="lazy" />
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Founder's Message -->
+		<section id="message" class="section message">
+			<div class="container">
+				<div class="message-content">
+					<h2 class="section-title">A Message from Our President</h2>
+					<div class="message-body">
+						<p class="message-intro">Dear Friends, Supporters, and Members of Our Community,</p>
+						<p>As President of Upper Hand International, it is both an honor and a responsibility to address you today. Our organization was founded on a simple but powerful belief — that when we extend a helping hand to those in need, we uplift not only individuals, but entire communities.</p>
+						<p>At Upper Hand International, we are committed to serving humanity with compassion, integrity, and transparency. As a non-profit charitable organization, our mission is to create meaningful change by supporting vulnerable families, empowering individuals, and responding to the needs of those who require assistance the most.</p>
+						<p>None of our efforts would be possible without the generosity, trust, and continued support of people like you. Whether you contribute your time, resources, expertise, or prayers, you are an essential part of this mission. Together, we are building hope, restoring dignity, and creating opportunities for a brighter future.</p>
+						<p>While we are proud of the progress we have made, there is still much work ahead. The challenges facing our communities require unity, compassion, and action. I invite you to continue standing with us — to advocate, to support, and to help us expand our reach so that no one feels forgotten or alone.</p>
+						<p>On behalf of Upper Hand International, I extend my deepest gratitude to every volunteer, donor, partner, and supporter. Your belief in our mission inspires us to work harder and reach further.</p>
+						<p class="message-closing">Together, we can continue to make a lasting difference.</p>
+						<div class="signature">
+							<p class="signature-name">Faheem Shehzad</p>
+							<p class="signature-title">President, Upper Hand International</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Blog Section -->
+		<section id="blog" class="section blog">
+			<div class="container">
+				<h2 class="section-title">Latest Updates</h2>
+				<p class="section-subtitle">Stories from the field and organization news</p>
+				{recentPosts.length > 0 ? (
+					<div class="blog-grid">
+						{recentPosts.map((post) => (
+							<article class="blog-card">
+								<h3 class="blog-title">{post.frontmatter.title}</h3>
+								<p class="blog-date">{post.frontmatter.date}</p>
+								<p class="blog-excerpt">{post.frontmatter.excerpt}</p>
+								<a href={post.url} class="blog-link">Read more →</a>
+							</article>
+						))}
+					</div>
+				) : (
+					<div class="blog-empty">
+						<p>Check back soon for updates on our latest projects and initiatives!</p>
+					</div>
+				)}
+			</div>
+		</section>
+
+		<!-- Contact/Footer -->
+		<footer id="contact" class="footer">
+			<div class="container">
+				<div class="footer-content">
+					<div class="footer-section">
+						<h3>Contact Us</h3>
+						<p>20862 W Ardmore Circle<br/>Plainfield, IL 60544</p>
+						<p><a href="mailto:upperhandinternational@gmail.com">upperhandinternational@gmail.com</a></p>
+					</div>
+					<div class="footer-section">
+						<h3>Leadership</h3>
+						<p>Faheem Shahzad - President</p>
+						<p>Dr. Shahid Sharer - Secretary</p>
+						<p>Qazi M Yousaf - Treasurer</p>
+					</div>
+					<div class="footer-section">
+						<h3>Supported By</h3>
+						<img src="/apa-bolingbrook.jpeg" alt="APA Bolingbrook" class="supporter-logo" />
+						<p class="supporter-name">APA Bolingbrook</p>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; {new Date().getFullYear()} Upper Hand International. All rights reserved. 501(c) Non-Profit Organization</p>
+				</div>
+			</div>
+		</footer>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary: #2563eb;
+				--primary-dark: #1e40af;
+				--secondary: #0ea5e9;
+				--text-dark: #1e293b;
+				--text-light: #64748b;
+				--bg-light: #f8fafc;
+				--white: #ffffff;
+				--gray-100: #f1f5f9;
+				--gray-200: #e2e8f0;
+				--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+				--shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+				--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+			}
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+				color: var(--text-dark);
+				line-height: 1.6;
+				scroll-behavior: smooth;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1.5rem;
+			}
+
+			/* Header */
+			.header {
+				background: var(--white);
+				box-shadow: var(--shadow-sm);
+				position: sticky;
+				top: 0;
+				z-index: 100;
+			}
+
+			.nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 0;
+			}
+
+			.logo-container {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
+
+			.logo {
+				height: 50px;
+				width: auto;
+			}
+
+			.org-name {
+				font-size: 1.25rem;
+				font-weight: 600;
+				color: var(--text-dark);
+			}
+
+			.nav-menu {
+				display: flex;
+				gap: 2rem;
+				list-style: none;
+			}
+
+			.nav-menu a {
+				text-decoration: none;
+				color: var(--text-light);
+				font-weight: 500;
+				transition: color 0.3s;
+			}
+
+			.nav-menu a:hover {
+				color: var(--primary);
+			}
+
+			/* Hero */
+			.hero {
+				position: relative;
+				height: 600px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+				overflow: hidden;
+			}
+
+			.hero-overlay {
+				position: absolute;
+				inset: 0;
+				background: url('/projects/project1.jpeg') center/cover;
+				opacity: 0.15;
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 10;
+				text-align: center;
+				color: var(--white);
+			}
+
+			.hero-title {
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin-bottom: 1.5rem;
+				line-height: 1.2;
+			}
+
+			.hero-subtitle {
+				font-size: 1.5rem;
+				font-weight: 300;
+				margin-bottom: 2rem;
+				opacity: 0.95;
+			}
+
+			.cta-button {
+				display: inline-block;
+				padding: 1rem 2.5rem;
+				background: var(--white);
+				color: var(--primary);
+				text-decoration: none;
+				font-weight: 600;
+				border-radius: 0.5rem;
+				transition: transform 0.3s, box-shadow 0.3s;
+				box-shadow: var(--shadow-lg);
+			}
+
+			.cta-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+			}
+
+			/* Sections */
+			.section {
+				padding: 5rem 0;
+			}
+
+			.section-title {
+				font-size: 2.5rem;
+				font-weight: 700;
+				text-align: center;
+				margin-bottom: 1rem;
+				color: var(--text-dark);
+			}
+
+			.section-subtitle {
+				text-align: center;
+				font-size: 1.125rem;
+				color: var(--text-light);
+				margin-bottom: 3rem;
+			}
+
+			/* About */
+			.about {
+				background: var(--bg-light);
+			}
+
+			.about-content {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: center;
+			}
+
+			.about-text {
+				font-size: 1.125rem;
+			}
+
+			.about-text .lead {
+				font-size: 1.375rem;
+				font-weight: 500;
+				color: var(--primary);
+				margin-bottom: 1.5rem;
+			}
+
+			.about-text p {
+				margin-bottom: 1rem;
+				color: var(--text-light);
+			}
+
+			.about-stats {
+				display: grid;
+				gap: 1.5rem;
+			}
+
+			.stat-card {
+				background: var(--white);
+				padding: 2rem;
+				border-radius: 1rem;
+				text-align: center;
+				box-shadow: var(--shadow);
+				transition: transform 0.3s;
+			}
+
+			.stat-card:hover {
+				transform: translateY(-4px);
+			}
+
+			.stat-number {
+				font-size: 2.5rem;
+				font-weight: 700;
+				color: var(--primary);
+				margin-bottom: 0.5rem;
+			}
+
+			.stat-label {
+				color: var(--text-light);
+				font-weight: 500;
+			}
+
+			/* Projects Gallery */
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				gap: 1.5rem;
+			}
+
+			.gallery-item {
+				position: relative;
+				overflow: hidden;
+				border-radius: 1rem;
+				box-shadow: var(--shadow);
+				aspect-ratio: 4/3;
+			}
+
+			.gallery-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s;
+			}
+
+			.gallery-item:hover img {
+				transform: scale(1.1);
+			}
+
+			/* Message */
+			.message {
+				background: var(--bg-light);
+			}
+
+			.message-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.message-body {
+				background: var(--white);
+				padding: 3rem;
+				border-radius: 1rem;
+				box-shadow: var(--shadow);
+			}
+
+			.message-body p {
+				margin-bottom: 1.5rem;
+				font-size: 1.0625rem;
+				color: var(--text-light);
+				line-height: 1.8;
+			}
+
+			.message-intro {
+				font-style: italic;
+				color: var(--text-dark) !important;
+			}
+
+			.message-closing {
+				font-weight: 500;
+				color: var(--text-dark) !important;
+			}
+
+			.signature {
+				margin-top: 2rem;
+				padding-top: 2rem;
+				border-top: 2px solid var(--gray-200);
+			}
+
+			.signature-name {
+				font-weight: 600;
+				font-size: 1.25rem;
+				color: var(--text-dark) !important;
+				margin-bottom: 0.25rem !important;
+			}
+
+			.signature-title {
+				color: var(--text-light) !important;
+				margin-bottom: 0 !important;
+			}
+
+			/* Blog */
+			.blog-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				gap: 2rem;
+			}
+
+			.blog-card {
+				background: var(--white);
+				padding: 2rem;
+				border-radius: 1rem;
+				box-shadow: var(--shadow);
+				transition: transform 0.3s, box-shadow 0.3s;
+			}
+
+			.blog-card:hover {
+				transform: translateY(-4px);
+				box-shadow: var(--shadow-lg);
+			}
+
+			.blog-title {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 0.5rem;
+				color: var(--text-dark);
+			}
+
+			.blog-date {
+				font-size: 0.875rem;
+				color: var(--text-light);
+				margin-bottom: 1rem;
+			}
+
+			.blog-excerpt {
+				color: var(--text-light);
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+
+			.blog-link {
+				color: var(--primary);
+				text-decoration: none;
+				font-weight: 600;
+				transition: color 0.3s;
+			}
+
+			.blog-link:hover {
+				color: var(--primary-dark);
+			}
+
+			.blog-empty {
+				text-align: center;
+				padding: 3rem;
+				background: var(--gray-100);
+				border-radius: 1rem;
+			}
+
+			.blog-empty p {
+				font-size: 1.125rem;
+				color: var(--text-light);
+			}
+
+			/* Footer */
+			.footer {
+				background: var(--text-dark);
+				color: var(--white);
+				padding: 3rem 0 1.5rem;
+			}
+
+			.footer-content {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 3rem;
+				margin-bottom: 2rem;
+			}
+
+			.footer-section h3 {
+				margin-bottom: 1rem;
+				font-size: 1.25rem;
+			}
+
+			.footer-section p {
+				margin-bottom: 0.5rem;
+				opacity: 0.9;
+			}
+
+			.footer-section a {
+				color: var(--white);
+				text-decoration: none;
+				transition: opacity 0.3s;
+			}
+
+			.footer-section a:hover {
+				opacity: 0.8;
+			}
+
+			.supporter-logo {
+				max-width: 150px;
+				height: auto;
+				margin-bottom: 0.5rem;
+				border-radius: 0.5rem;
+			}
+
+			.supporter-name {
+				font-weight: 500;
+			}
+
+			.footer-bottom {
+				text-align: center;
+				padding-top: 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.1);
+				opacity: 0.8;
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.nav-menu {
+					display: none;
+				}
+
+				.hero-title {
+					font-size: 2rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.125rem;
+				}
+
+				.about-content {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+
+				.section-title {
+					font-size: 2rem;
+				}
+
+				.message-body {
+					padding: 2rem 1.5rem;
+				}
+
+				.gallery {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</body>
+</html>
