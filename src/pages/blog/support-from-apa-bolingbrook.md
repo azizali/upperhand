@@ -33,4 +33,4 @@ We are grateful for this partnership and look forward to continuing our work tog
 
 ---
 
-*Interested in partnering with Upper Hand International? Contact us at upperhandinternational@gmail.com*
+*Interested in partnering with Upper Hand International? Contact us at &#117;&#112;&#112;&#101;&#114;&#104;&#97;&#110;&#100;&#105;&#110;&#116;&#101;&#114;&#110;&#97;&#116;&#105;&#111;&#110;&#97;&#108;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;*
