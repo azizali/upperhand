@@ -1,41 +1,13 @@
 ---
 const { frontmatter } = Astro.props;
-import "../styles/global.css";
+import BaseLayout from './BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/logo.png" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={frontmatter.excerpt} />
-		<title>{frontmatter.title} - Upper Hand International</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-slate-50 text-slate-900 antialiased">
-		<!-- Header -->
-		<header class="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
-			<div class="mx-auto max-w-6xl px-6">
-				<nav class="flex items-center justify-between py-4">
-					<div class="flex items-center gap-3">
-						<img src="/logo.png" alt="Upper Hand International Logo" class="h-12 w-auto" />
-						<a href="/" class="text-base font-semibold text-slate-900">Upper Hand International</a>
-					</div>
-					<ul class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
-						<li><a class="transition-colors hover:text-slate-900" href="/#about">About</a></li>
-						<li><a class="transition-colors hover:text-slate-900" href="/#projects">Projects</a></li>
-						<li><a class="transition-colors hover:text-slate-900" href="/#message">Message</a></li>
-						<li><a class="transition-colors hover:text-slate-900" href="/#blog">Blog</a></li>
-						<li><a class="transition-colors hover:text-slate-900" href="/#contact">Contact</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-
-		<!-- Blog Post Content -->
+<BaseLayout
+	title={`${frontmatter.title} - Upper Hand International`}
+	description={frontmatter.excerpt}
+>
+	<!-- Blog Post Content -->
 		<article class="py-12">
 			<div class="mx-auto max-w-6xl px-6">
 				<div class="mx-auto max-w-3xl">
@@ -56,35 +28,4 @@ import "../styles/global.css";
 				</div>
 			</div>
 		</article>
-
-		<!-- Footer -->
-		<footer class="border-t border-slate-900/10 bg-slate-950 py-14 text-slate-200">
-			<div class="mx-auto max-w-6xl px-6">
-				<div class="grid gap-8 md:grid-cols-3">
-					<div>
-						<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Contact Us</h3>
-						<p class="mt-4 text-sm text-slate-300">20862 W Ardmore Circle<br/>Plainfield, IL 60544</p>
-						<p class="mt-2 text-sm">
-						<a class="text-slate-100 underline decoration-slate-500 underline-offset-4 transition hover:text-white" href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#112;&#112;&#101;&#114;&#104;&#97;&#110;&#100;&#105;&#110;&#116;&#101;&#114;&#110;&#97;&#116;&#105;&#111;&#110;&#97;&#108;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#117;&#112;&#112;&#101;&#114;&#104;&#97;&#110;&#100;&#105;&#110;&#116;&#101;&#114;&#110;&#97;&#116;&#105;&#111;&#110;&#97;&#108;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
-						</p>
-					</div>
-					<div>
-						<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Leadership</h3>
-						<p class="mt-4 text-sm text-slate-300">Faheem Shahzad - President</p>
-						<p class="mt-2 text-sm text-slate-300">Dr. Shahid Sharer - Secretary</p>
-						<p class="mt-2 text-sm text-slate-300">Qazi M Yousaf - Treasurer</p>
-					</div>
-					<div>
-						<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Supported By</h3>
-						<img src="/apa-bolingbrook.jpeg" alt="APA Bolingbrook" class="mt-4 h-auto w-36 rounded-xl border border-slate-800" />
-						<p class="mt-2 text-sm font-medium text-slate-300">APA Bolingbrook</p>
-					</div>
-				</div>
-				<div class="mt-10 border-t border-slate-800 pt-6 text-center text-xs text-slate-400">
-					<p>&copy; {new Date().getFullYear()} Upper Hand International. All rights reserved. 501(c) Non-Profit Organization</p>
-					<p class="mt-2">Site made by <a class="text-slate-200 underline decoration-slate-600 underline-offset-4 transition hover:text-white" href="https://betterstarter.dev" target="_blank" rel="noopener noreferrer">BetterStarter.dev</a></p>
-				</div>
-			</div>
-		</footer>
-	</body>
-</html>
+</BaseLayout>
