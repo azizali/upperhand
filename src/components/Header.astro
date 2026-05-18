@@ -3,14 +3,16 @@ interface Props {
 	currentPath?: string;
 }
 
+import { siteContact, siteLinks } from '../data/site';
+
 const { currentPath = "/" } = Astro.props;
 ---
 
 <header class="relative z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-wrap gap-1 border-b border-slate-200/70 py-1 text-[11px] text-slate-600 items-center justify-end sm:gap-3">
-			<a class="transition-colors hover:text-slate-900" href="mailto:upperhandinternational@gmail.com">upperhandinternational@gmail.com</a>
-			<a class="transition-colors hover:text-slate-900" href="tel:8155230669">(815) 523-0669</a>
+			<a class="transition-colors hover:text-slate-900" href={siteLinks.email}>{siteContact.email}</a>
+			<a class="transition-colors hover:text-slate-900" href={siteLinks.phone}>{siteContact.phoneDisplay}</a>
 		</div>
 		<nav class="flex items-center justify-between py-2.5">
 			<div class="flex items-center gap-3">
