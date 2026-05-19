@@ -1,9 +1,9 @@
-import siteContent from './site-content.json';
+import contactContent from './site/contact.json';
 
 export const siteContact = {
-	email: siteContent.contact.email,
-	phoneDisplay: siteContent.contact.phoneDisplay,
-	phoneDial: siteContent.contact.phoneDial,
+	email: contactContent.email,
+	phoneDisplay: contactContent.phoneDisplay,
+	phoneDial: contactContent.phoneDial,
 };
 
 export const siteLinks = {

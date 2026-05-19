@@ -46,14 +46,15 @@ content:
         type: rich-text
         required: true
 
-  - name: siteContent
+  - name: siteSections
     label: Site Content
-    type: file
-    path: src/data/site-content.json
-    format: json
-    fields:
-      - name: contact
-        type: object
+    type: group
+    items:
+      - name: siteContact
+        label: Contact
+        type: file
+        path: src/data/site/contact.json
+        format: json
         fields:
           - name: email
             type: string
@@ -66,8 +67,12 @@ content:
             label: Phone (Dial)
             type: string
             required: true
-      - name: navigation
-        type: object
+
+      - name: siteNavigation
+        label: Navigation
+        type: file
+        path: src/data/site/navigation.json
+        format: json
         list: true
         fields:
           - name: label
@@ -76,8 +81,12 @@ content:
           - name: href
             type: string
             required: true
-      - name: footer
-        type: object
+
+      - name: siteFooter
+        label: Footer
+        type: file
+        path: src/data/site/footer.json
+        format: json
         fields:
           - name: leadership
             type: object

@@ -3,18 +3,19 @@ interface Props {
 	currentPath?: string;
 }
 
-import siteContent from '../data/site-content.json';
+import contactContent from '../data/site/contact.json';
+import navigationContent from '../data/site/navigation.json';
 
 const { currentPath = "/" } = Astro.props;
-const emailLink = `mailto:${siteContent.contact.email}`;
-const phoneLink = `tel:${siteContent.contact.phoneDial}`;
+const emailLink = `mailto:${contactContent.email}`;
+const phoneLink = `tel:${contactContent.phoneDial}`;
 ---
 
 <header class="relative z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-wrap gap-1 border-b border-slate-200/70 py-1 text-[11px] text-slate-600 items-center justify-end sm:gap-3">
-			<a class="transition-colors hover:text-slate-900" href={emailLink}>{siteContent.contact.email}</a>
-			<a class="transition-colors hover:text-slate-900" href={phoneLink}>{siteContent.contact.phoneDisplay}</a>
+			<a class="transition-colors hover:text-slate-900" href={emailLink}>{contactContent.email}</a>
+			<a class="transition-colors hover:text-slate-900" href={phoneLink}>{contactContent.phoneDisplay}</a>
 		</div>
 		<nav class="flex items-center justify-between py-2.5">
 			<div class="flex items-center gap-3">
@@ -29,7 +30,7 @@ const phoneLink = `tel:${siteContent.contact.phoneDial}`;
 				</button>
 			</div>
 			<ul class="hidden items-center gap-5 text-xs font-medium text-slate-600 md:flex">
-				{siteContent.navigation.map((link) => (
+				{navigationContent.map((link) => (
 					<li><a class="transition-colors hover:text-slate-900" href={link.href}>{link.label}</a></li>
 				))}
 			</ul>
@@ -48,7 +49,7 @@ const phoneLink = `tel:${siteContent.contact.phoneDial}`;
 				</svg>
 			</button>
 		</div>
-			{siteContent.navigation.map((link, index) => (
+			{navigationContent.map((link, index) => (
 				<a class:list={["block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900", index > 0 && "mt-1"]} href={link.href}>{link.label}</a>
 			))}
 	</div>
