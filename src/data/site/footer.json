@@ -1,0 +1,43 @@
+{
+  "leadership": [
+    {
+      "name": "Faheem Shahzad",
+      "role": "President"
+    },
+    {
+      "name": "Dr. Shahid Sharer",
+      "role": "Secretary"
+    },
+    {
+      "name": "Qazi M Yousaf",
+      "role": "Treasurer"
+    }
+  ],
+  "supporters": [
+    {
+      "name": "APA Bolingbrook",
+      "image": "/supporters/apa-bolingbrook.jpeg"
+    },
+    {
+      "name": "HUM TV",
+      "image": "/supporters/hum-tv.png"
+    },
+    {
+      "name": "Matari Coffee Co.",
+      "image": "/supporters/matari-coffee.jpeg"
+    },
+    {
+      "name": "MiraKish",
+      "image": "/supporters/mirakish.jpeg"
+    },
+    {
+      "name": "Dynasty Home Care",
+      "image": "/supporters/dynasty-home-care.png",
+      "href": "/blog/dynasty-home-care"
+    },
+    {
+      "name": "HandiHijabi",
+      "image": "/supporters/handihijabi.jpeg"
+    }
+  ]
+}

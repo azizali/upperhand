@@ -1,0 +1,23 @@
+{
+  "heading": "Our Mission",
+  "subheading": "Serving humanity with compassion, integrity, and transparency.",
+  "intro": "At Upper Hand International, we are committed to serving humanity with compassion, integrity, and transparency.",
+  "paragraphs": [
+    "As a non-profit charitable organization, our mission is to create meaningful change by supporting vulnerable families, empowering individuals, and responding to the needs of those who require assistance the most.",
+    "We specialize in creating sustainable water pump solutions in Pakistan's Thar region, bringing clean water to communities that need it most."
+  ],
+  "stats": [
+    {
+      "value": "100+",
+      "label": "Water Pumps Installed"
+    },
+    {
+      "value": "1000+",
+      "label": "Families Served"
+    },
+    {
+      "value": "501(c)",
+      "label": "Non-Profit Status"
+    }
+  ]
+}

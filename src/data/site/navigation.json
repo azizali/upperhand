@@ -1,0 +1,22 @@
+[
+  {
+    "label": "About",
+    "href": "/#about"
+  },
+  {
+    "label": "Projects",
+    "href": "/#projects"
+  },
+  {
+    "label": "Additional Work",
+    "href": "/#additional-work"
+  },
+  {
+    "label": "Blog",
+    "href": "/blog"
+  },
+  {
+    "label": "Donate",
+    "href": "/#contact"
+  }
+]

@@ -3,14 +3,19 @@ interface Props {
 	currentPath?: string;
 }
 
+import contactContent from '../data/site/contact.json';
+import navigationContent from '../data/site/navigation.json';
+
 const { currentPath = "/" } = Astro.props;
+const emailLink = `mailto:${contactContent.email}`;
+const phoneLink = `tel:${contactContent.phoneDial}`;
 ---
 
 <header class="relative z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-wrap gap-1 border-b border-slate-200/70 py-1 text-[11px] text-slate-600 items-center justify-end sm:gap-3">
-			<a class="transition-colors hover:text-slate-900" href="mailto:upperhandinternational@gmail.com">upperhandinternational@gmail.com</a>
-			<a class="transition-colors hover:text-slate-900" href="tel:8155230669">(815) 523-0669</a>
+			<a class="transition-colors hover:text-slate-900" href={emailLink}>{contactContent.email}</a>
+			<a class="transition-colors hover:text-slate-900" href={phoneLink}>{contactContent.phoneDisplay}</a>
 		</div>
 		<nav class="flex items-center justify-between py-2.5">
 			<div class="flex items-center gap-3">
@@ -25,11 +30,9 @@ const { currentPath = "/" } = Astro.props;
 				</button>
 			</div>
 			<ul class="hidden items-center gap-5 text-xs font-medium text-slate-600 md:flex">
-				<li><a class="transition-colors hover:text-slate-900" href="/#about">About</a></li>
-				<li><a class="transition-colors hover:text-slate-900" href="/#projects">Projects</a></li>
-				<li><a class="transition-colors hover:text-slate-900" href="/#additional-work">Additional Work</a></li>
-				<li><a class="transition-colors hover:text-slate-900" href="/blog">Blog</a></li>
-				<li><a class="transition-colors hover:text-slate-900" href="/#contact">Donate</a></li>
+				{navigationContent.map((link) => (
+					<li><a class="transition-colors hover:text-slate-900" href={link.href}>{link.label}</a></li>
+				))}
 			</ul>
 		</nav>
 	</div>
@@ -46,11 +49,9 @@ const { currentPath = "/" } = Astro.props;
 				</svg>
 			</button>
 		</div>
-		<a class="block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900" href="/#about">About</a>
-		<a class="mt-1 block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900" href="/#projects">Projects</a>
-		<a class="mt-1 block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900" href="/#additional-work">Additional Work</a>
-		<a class="mt-1 block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900" href="/blog">Blog</a>
-		<a class="mt-1 block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900" href="/#contact">Donate</a>
+			{navigationContent.map((link, index) => (
+				<a class:list={["block rounded-md px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:text-slate-900", index > 0 && "mt-1"]} href={link.href}>{link.label}</a>
+			))}
 	</div>
 </div>
 
