@@ -1,0 +1,28 @@
+{
+  "heading": "Additional Work",
+  "subheading": "Expanding our reach to serve communities in need",
+  "items": [
+    {
+      "title": "Hardship Assistance",
+      "badge": "Zakaat & Sadaqa Eligible",
+      "paragraphs": [
+        "Hardship Assistance Program for individuals and families living in the United States. This program is designed to support community members who are facing financial difficulties. We provide assistance for essential needs such as:",
+        "Our goal is to help individuals and families regain stability during challenging times while ensuring that financial hardship does not prevent access to basic necessities."
+      ],
+      "bullets": [
+        "Rental support",
+        "Utility bills",
+        "Daily living expenses"
+      ]
+    },
+    {
+      "title": "International Scholarship",
+      "badge": "Zakaat & Sadaqa Eligible",
+      "paragraphs": [
+        "International scholarship program designed to support talented and motivated students from around the world. Through this initiative, we extend opportunities to students in countries such as Pakistan, who are eager to pursue their studies abroad. Selected students are given the chance to study here, and Upperhand International takes responsibility for covering their semester tuition fees.",
+        "Our goal is to remove financial barriers and empower deserving students with access to quality education, helping them build a brighter future while promoting global academic collaboration and cultural exchange."
+      ],
+      "bullets": []
+    }
+  ]
+}

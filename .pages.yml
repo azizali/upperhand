@@ -103,14 +103,15 @@ content:
                 label: Link (Optional)
                 type: string
 
-  - name: homepage
-    label: Homepage Text
-    type: file
-    path: src/data/home-content.json
-    format: json
-    fields:
-      - name: hero
-        type: object
+  - name: homepageSections
+    label: Homepage Sections
+    type: group
+    items:
+      - name: homepageHero
+        label: Hero
+        type: file
+        path: src/data/home/hero.json
+        format: json
         fields:
           - name: eyebrow
             type: string
@@ -127,8 +128,12 @@ content:
           - name: ctaHref
             type: string
             required: true
-      - name: mission
-        type: object
+
+      - name: homepageMission
+        label: Mission
+        type: file
+        path: src/data/home/mission.json
+        format: json
         fields:
           - name: heading
             type: string
@@ -152,9 +157,12 @@ content:
               - name: label
                 type: string
                 required: true
-      - name: additionalWork
+
+      - name: homepageAdditionalWork
         label: Additional Work
-        type: object
+        type: file
+        path: src/data/home/additional-work.json
+        format: json
         fields:
           - name: heading
             type: string
@@ -177,9 +185,12 @@ content:
               - name: bullets
                 type: string
                 list: true
-      - name: presidentMessage
-        label: Message from Our President
-        type: object
+
+      - name: homepagePresidentMessage
+        label: Message From Our President
+        type: file
+        path: src/data/home/president-message.json
+        format: json
         fields:
           - name: heading
             type: string
