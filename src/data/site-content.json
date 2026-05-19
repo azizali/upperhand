@@ -1,0 +1,77 @@
+{
+  "contact": {
+    "email": "upperhandinternational@gmail.com",
+    "phoneDisplay": "(815) 523-0669",
+    "phoneDial": "8155230669"
+  },
+  "navigation": [
+    {
+      "label": "About",
+      "href": "/#about"
+    },
+    {
+      "label": "Projects",
+      "href": "/#projects"
+    },
+    {
+      "label": "Additional Work",
+      "href": "/#additional-work"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
+    },
+    {
+      "label": "Donate",
+      "href": "/#contact"
+    }
+  ],
+  "footer": {
+    "leadership": [
+      {
+        "name": "Faheem Shahzad",
+        "role": "President"
+      },
+      {
+        "name": "Dr. Shahid Sharer",
+        "role": "Secretary"
+      },
+      {
+        "name": "Qazi M Yousaf",
+        "role": "Treasurer"
+      }
+    ],
+    "supporters": [
+      {
+        "name": "APA Bolingbrook",
+        "image": "/supporters/apa-bolingbrook.jpeg",
+        "href": ""
+      },
+      {
+        "name": "HUM TV",
+        "image": "/supporters/hum-tv.png",
+        "href": ""
+      },
+      {
+        "name": "Matari Coffee Co.",
+        "image": "/supporters/matari-coffee.jpeg",
+        "href": ""
+      },
+      {
+        "name": "MiraKish",
+        "image": "/supporters/mirakish.jpeg",
+        "href": ""
+      },
+      {
+        "name": "HandiHijabi",
+        "image": "/supporters/handihijabi.jpeg",
+        "href": ""
+      },
+      {
+        "name": "Dynasty Home Care",
+        "image": "/supporters/dynasty-home-care.png",
+        "href": "/blog/dynasty-home-care"
+      }
+    ]
+  }
+}

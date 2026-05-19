@@ -1,7 +1,9 @@
+import siteContent from './site-content.json';
+
 export const siteContact = {
-	email: "upperhandinternational@gmail.com",
-	phoneDisplay: "(815) 523-0669",
-	phoneDial: "8155230669",
+	email: siteContent.contact.email,
+	phoneDisplay: siteContent.contact.phoneDisplay,
+	phoneDial: siteContent.contact.phoneDial,
 };
 
 export const siteLinks = {

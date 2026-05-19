@@ -1,6 +1,9 @@
 ---
-import { siteContact, siteLinks } from '../data/site';
+import siteContent from '../data/site-content.json';
 import DonationSection from './DonationSection.astro';
+
+const emailLink = `mailto:${siteContent.contact.email}`;
+const phoneLink = `tel:${siteContent.contact.phoneDial}`;
 ---
 
 <footer id="contact" class="border-t border-slate-900/10 bg-slate-950 py-14 text-slate-200">
@@ -12,26 +15,29 @@ import DonationSection from './DonationSection.astro';
 			<div>
 				<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Contact Us</h3>
 				<p class="mt-2 text-sm flex flex-col gap-2">
-					<a class="text-slate-100 underline decoration-slate-500 underline-offset-4 transition hover:text-white" href={siteLinks.email}>{siteContact.email}</a>
-					<a class="text-slate-100 underline decoration-slate-500 underline-offset-4 transition hover:text-white" href={siteLinks.phone}>{siteContact.phoneDisplay}</a>
+					<a class="text-slate-100 underline decoration-slate-500 underline-offset-4 transition hover:text-white" href={emailLink}>{siteContent.contact.email}</a>
+					<a class="text-slate-100 underline decoration-slate-500 underline-offset-4 transition hover:text-white" href={phoneLink}>{siteContent.contact.phoneDisplay}</a>
 				</p>
 			</div>
 			<div>
 				<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Leadership</h3>
-				<p class="mt-4 text-sm text-slate-300">Faheem Shahzad - President</p>
-				<p class="mt-2 text-sm text-slate-300">Dr. Shahid Sharer - Secretary</p>
-				<p class="mt-2 text-sm text-slate-300">Qazi M Yousaf - Treasurer</p>
+				{siteContent.footer.leadership.map((person, index) => (
+					<p class:list={["text-sm text-slate-300", index === 0 ? "mt-4" : "mt-2"]}>{person.name} - {person.role}</p>
+				))}
 			</div>
 		</div>
 		<div class="mt-10 border-t border-slate-800 pt-6">
 			<h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">Supported By</h3>
 			<div class="mt-4 flex w-full flex-row flex-wrap items-center justify-around gap-4">
-				<img src="/supporters/apa-bolingbrook.jpeg" alt="APA Bolingbrook" class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
-				<img src="/supporters/hum-tv.png" alt="HUM TV" class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
-				<img src="/supporters/matari-coffee.jpeg" alt="Matari Coffee Co." class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
-				<img src="/supporters/mirakish.jpeg" alt="MiraKish" class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
-				<img src="/supporters/handihijabi.jpeg" alt="HandiHijabi" class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
-				<a href="/blog/dynasty-home-care"><img src="/supporters/dynasty-home-care.png" alt="Dynasty Home Care" class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" /></a>
+				{siteContent.footer.supporters.map((supporter) => (
+					supporter.href ? (
+						<a href={supporter.href}>
+							<img src={supporter.image} alt={supporter.name} class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
+						</a>
+					) : (
+						<img src={supporter.image} alt={supporter.name} class="h-16 w-28 object-contain rounded-xl border border-slate-800 bg-white p-2" />
+					)
+				))}
 			</div>
 		</div>
 		<div class="mt-10 border-t border-slate-800 pt-6 text-center text-xs text-slate-400">
