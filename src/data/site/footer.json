@@ -16,33 +16,28 @@
   "supporters": [
     {
       "name": "APA Bolingbrook",
-      "image": "/supporters/apa-bolingbrook.jpeg",
-      "href": ""
+      "image": "/supporters/apa-bolingbrook.jpeg"
     },
     {
       "name": "HUM TV",
-      "image": "/supporters/hum-tv.png",
-      "href": ""
+      "image": "/supporters/hum-tv.png"
     },
     {
       "name": "Matari Coffee Co.",
-      "image": "/supporters/matari-coffee.jpeg",
-      "href": ""
+      "image": "/supporters/matari-coffee.jpeg"
     },
     {
       "name": "MiraKish",
-      "image": "/supporters/mirakish.jpeg",
-      "href": ""
-    },
-    {
-      "name": "HandiHijabi",
-      "image": "/supporters/handihijabi.jpeg",
-      "href": ""
+      "image": "/supporters/mirakish.jpeg"
     },
     {
       "name": "Dynasty Home Care",
       "image": "/supporters/dynasty-home-care.png",
       "href": "/blog/dynasty-home-care"
+    },
+    {
+      "name": "HandiHijabi",
+      "image": "/supporters/handihijabi.jpeg"
     }
   ]
 }
